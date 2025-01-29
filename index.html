@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Finanzas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+        #balance {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .ingreso { color: green; }
+        .gasto { color: red; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gestor de Finanzas</h2>
+    <p>Balance: <span id="balance">0</span></p>
+
+    <input type="number" id="monto" placeholder="Monto" />
+    <input type="text" id="descripcion" placeholder="Descripción" />
+    <button onclick="agregarTransaccion('ingreso')">Agregar Ingreso</button>
+    <button onclick="agregarTransaccion('gasto')">Agregar Gasto</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody id="transacciones"></tbody>
+    </table>
+
+    <script src="./dist/index.js">
+       
+    </script>
+
+</body>
+</html>
