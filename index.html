@@ -4,54 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Finanzas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             max-width: 400px;
-            margin: auto;
+            width: 100%;
             text-align: center;
         }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
         #balance {
             font-size: 24px;
             font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
         }
-        .ingreso { color: green; }
-        .gasto { color: red; }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .ingreso-btn {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .ingreso-btn:hover {
+            background: #27ae60;
+        }
+
+        .gasto-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .gasto-btn:hover {
+            background: #c0392b;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 15px;
         }
+
         th, td {
-            border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: 600;
+        }
+
+        .ingreso {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .gasto {
+            color: #e74c3c;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h2>Gestor de Finanzas</h2>
-    <p>Balance: <span id="balance">0</span></p>
+    <div class="container">
+        <h2>Gestor de Finanzas</h2>
+        <p>Balance: <span id="balance">0</span></p>
 
-    <input type="number" id="monto" placeholder="Monto" />
-    <input type="text" id="descripcion" placeholder="Descripción" />
-    <button onclick="agregarTransaccion('ingreso')">Agregar Ingreso</button>
-    <button onclick="agregarTransaccion('gasto')">Agregar Gasto</button>
+        <div class="inputs">
+            <input type="number" id="monto" placeholder="Monto" />
+            <input type="text" id="descripcion" placeholder="Descripción" />
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>Monto</th>
-                <th>Tipo</th>
-            </tr>
-        </thead>
-        <tbody id="transacciones"></tbody>
-    </table>
+        <div class="buttons">
+            <button class="ingreso-btn" onclick="agregarTransaccion('ingreso')">Ingreso</button>
+            <button class="gasto-btn" onclick="agregarTransaccion('gasto')">Gasto</button>
+        </div>
 
-    <script src="./dist/index.js">
-       
-    </script>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Monto</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody id="transacciones"></tbody>
+        </table>
+    </div>
+
+    <script src="./dist/index.js"></script>
 
 </body>
 </html>
